@@ -1,0 +1,32 @@
+
+
+<div>
+  
+  
+  <h2>Sección de {{ seccionActual }}</h2>
+  <button (click)="cambiarSeccion('inicio')">Inicio</button>
+  <button (click)="cambiarSeccion('acerca-del-autor')">Acerca del Autor y el Sitio</button>
+  <button (click)="cambiarSeccion('productos')">Productos</button>
+  <button (click)="cambiarSeccion('contacto')">Contacto</button>
+
+
+  <div *ngIf="seccionActual === 'inicio'">
+    <p>{{ mensajeInicio }}</p>
+  </div>
+
+  <div *ngIf="seccionActual === 'acerca-del-autor'">
+    <p>{{ informacionAutor }}</p>
+  </div>
+
+  <div *ngIf="seccionActual === 'productos'">
+    <div *ngFor="let producto of productos" class="producto">
+      <h3>{{ producto.nombre }}</h3>
+      <p>{{ producto.descripcion }}</p>
+      <img [src]="producto.imagen" alt="{{ producto.nombre }}" />
+    </div>
+  </div>
+
+  <div *ngIf="seccionActual === 'contacto'">
+    <p>{{ informacionContacto }}</p>
+  </div>
+</div>
